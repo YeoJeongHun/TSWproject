@@ -1,0 +1,194 @@
+DROP DATABASE IF EXISTS testTSW;
+CREATE DATABASE testTSW;
+USE testTSW;
+
+#업무 테이블 생성
+CREATE TABLE TASK(
+id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '번호',
+title CHAR(100) NOT NULL COMMENT '제목',
+`body` TEXT NOT NULL COMMENT '내용',
+regDate DATETIME NOT NULL COMMENT '작성날짜',
+updateDate DATETIME NOT NULL COMMENT '수정날짜',
+delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부',
+delDate DATETIME COMMENT '삭제날짜',
+blindStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '숨김여부',
+blindDate DATETIME COMMENT '숨김날짜',
+writerId INT(10) UNSIGNED NOT NULL COMMENT '작성자',
+reciver INT(10) NOT NULL COMMENT '업무 받는 사람 테이블번호'
+);
+#업무 테스트 셋팅1
+INSERT INTO task SET title='title1', `body`='내용1', regDate=NOW(), updateDate=NOW(), writerId=2, taskPartId=1, reciver=1;
+#업무 테스트 셋팅1
+INSERT INTO task SET title='title2', `body`='내용2', regDate=NOW(), updateDate=NOW(), writerId=6, taskPartId=5, reciver=2;
+
+#부서 테이블 생성
+CREATE TABLE taskPart(
+id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '번호',
+department CHAR(30) NOT NULL COMMENT '부서이름',
+memberCount INT(10) COMMENT '부서 인원수',
+leaderId INT(10) COMMENT '팀장 번호'
+);
+#부서 테이블 값 입력
+#전체
+INSERT INTO taskPart
+SET department = '전체';
+#영업
+INSERT INTO taskPart
+SET department = '영업';
+#TM
+INSERT INTO taskPart
+SET department = 'TM';
+#기술
+INSERT INTO taskPart
+SET department = '기술';
+#지원
+INSERT INTO taskPart
+SET department = '지원';
+#개발
+INSERT INTO taskPart
+SET department = '개발';
+
+#멤버 테이블 생성
+CREATE TABLE `member`(
+id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '번호',
+`name` CHAR(20) NOT NULL COMMENT '이름',
+loginId CHAR(30) NOT NULL UNIQUE COMMENT '로그인ID',
+loginPw CHAR(30) NOT NULL COMMENT '로그인PW',
+departmentId INT(3) NOT NULL COMMENT '소속부서',
+`rank` CHAR(20) COMMENT '직책',
+gender TINYINT(1) UNSIGNED NOT NULL COMMENT '성별',
+birthDate DATETIME COMMENT '생일',
+workStartDate DATETIME COMMENT '입사일',
+workFinishDate DATETIME COMMENT '퇴사일'
+);
+#멤버 테이블 셋팅
+#관리자
+INSERT INTO `member`
+SET `name` = '관리자',
+loginId = 'test',
+loginPw = 'test',
+departmentId = 1,
+`rank` = '관리자',
+gender = 1,
+birthDate = NOW(),
+workStartDate=NOW(),
+workFinishDate=NOW();
+#대표
+INSERT INTO `member`
+SET `name` = '대표',
+loginId = 'dhcnsxor',
+loginPw = 'dhcnsxor',
+departmentId = 1,
+`rank` = '대표',
+gender = 1;
+#TM팀장
+INSERT INTO `member`
+SET `name` = '조양순',
+loginId = 'whdidtns',
+loginPw = 'whdidtns',
+departmentId = 3,
+`rank` = '팀장',
+gender = 0;
+#TM직원
+INSERT INTO `member`
+SET `name` = '김티엠',
+loginId = 'rlaxldpa',
+loginPw = 'rlaxldpa',
+departmentId = 3,
+`rank` = '메니저',
+gender = 0;
+#영업 팀장
+INSERT INTO `member`
+SET `name` = '이승연',
+loginId = 'dltmddus',
+loginPw = 'dltmddus',
+departmentId = 2,
+`rank` = '팀장',
+gender = 1;
+#기술 팀장
+INSERT INTO `member`
+SET `name` = '손영운',
+loginId = 'thsduddns',
+loginPw = 'thsduddns',
+departmentId = 4,
+`rank` = '팀장',
+gender = 1;
+#기술
+INSERT INTO `member`
+SET `name` = '송전규',
+loginId = 'thdwjsrb',
+loginPw = 'thdwjsrb',
+departmentId = 4,
+`rank` = '메니저',
+gender = 1;
+#지원
+INSERT INTO `member`
+SET `name` = '이지윤',
+loginId = 'dlwldbs',
+loginPw = 'dlwldbs',
+departmentId = 5,
+`rank` = '메니저',
+gender = 0;
+#지원
+INSERT INTO `member`
+SET `name` = '김지예',
+loginId = 'rlawldP',
+loginPw = 'rlawldP',
+departmentId = 5,
+`rank` = '메니저',
+gender = 0;
+#개발
+INSERT INTO `member`
+SET `name` = '김범중',
+loginId = 'rlaqjawnd',
+loginPw = 'rlaqjawnd',
+departmentId = 6,
+`rank` = '주임',
+gender = 1;
+#개발
+INSERT INTO `member`
+SET `name` = '여정훈',
+loginId = 'duwjdgns',
+loginPw = 'duwjdgns',
+departmentId = 6,
+`rank` = '메니저',
+gender = 1;
+#개발
+INSERT INTO `member`
+SET `name` = '방민석',
+loginId = 'qkdalstjr',
+loginPw = 'qkdalstjr',
+departmentId = 6,
+`rank` = '메니저',
+gender = 1;
+
+#업무 수신자 테이블 생성
+CREATE TABLE TaskReciver(
+id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '번호',
+taskNum INT(10) NOT NULL COMMENT '업무 테이블 번호',
+reciverId INT(10) NOT NULL COMMENT '업무 수신자ID'
+);
+#1번글 수신자 셋팅
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=2;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=3;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=4;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=5;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=6;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=7;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=8;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=9;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=10;
+INSERT INTO TaskReciver SET taskNum = 1, reciverId=11;
+#2번글 수신자 셋팅
+INSERT INTO TaskReciver SET taskNum = 2, reciverId=8;
+INSERT INTO TaskReciver SET taskNum = 2, reciverId=9;
+INSERT INTO TaskReciver SET taskNum = 2, reciverId=10;
+INSERT INTO TaskReciver SET taskNum = 2, reciverId=11;
+INSERT INTO TaskReciver SET taskNum = 2, reciverId=12;
+
+
+
+
+
+
+
