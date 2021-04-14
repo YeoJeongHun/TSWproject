@@ -2,24 +2,27 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="../common/detailcss.jspf"%>
+<%@ include file="../common/taskShowListCSS.jspf"%>
+
 
 <div class="task-box">
 	<div class="new-task-box">
 		<table class="table">
 			<caption>신규 업무</caption>
 			<tr>
-				<th>No.</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
+				<th width="5%">No.</th>
+				<th width="55%">제목</th>
+				<th width="10%">작성자</th>
+				<th width="20%">작성일</th>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>게시물 글 제목입니다</td>
-				<td>관리자</td>
-				<td>2018-08-01</td>
-			</tr>
+			<c:forEach items="${newtasks}" var="newtask">
+				<tr>
+					<td>${newtask.id}</td>
+					<td>${newtask.title}</td>
+					<td>${newtask.writerId}</td>
+					<td>${newtask.regDate}</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	<br /> <br />
@@ -27,17 +30,19 @@
 		<table class="table">
 			<caption>진행중 업무</caption>
 			<tr>
-				<th>No.</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
+				<th width="5%">No.</th>
+				<th width="55%">제목</th>
+				<th width="10%">작성자</th>
+				<th width="20%">작성일</th>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>게시물 글 제목입니다</td>
-				<td>관리자</td>
-				<td>2018-08-01</td>
-			</tr>
+			<c:forEach items="${ingtasks}" var="ingtask">
+				<tr>
+					<td>${ingtask.id}</td>
+					<td>${ingtask.title}</td>
+					<td>${ingtask.writerId}</td>
+					<td>${ingtask.regDate}</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	<br /> <br />
@@ -45,41 +50,19 @@
 		<table class="table">
 			<caption>완료된 업무</caption>
 			<tr>
-				<th>No.</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
+				<th width="5%">No.</th>
+				<th width="55%">제목</th>
+				<th width="10%">작성자</th>
+				<th width="20%">작성일</th>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>게시물 글 제목입니다</td>
-				<td>관리자</td>
-				<td>2018-08-01</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>게시물 글 제목입니다</td>
-				<td>관리자</td>
-				<td>2018-08-01</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>게시물 글 제목입니다</td>
-				<td>관리자</td>
-				<td>2018-08-01</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>게시물 글 제목입니다</td>
-				<td>관리자</td>
-				<td>2018-08-01</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>게시물 글 제목입니다</td>
-				<td>관리자</td>
-				<td>2018-08-01</td>
-			</tr>
+			<c:forEach items="${finishtasks}" var="finishtask">
+				<tr>
+					<td>${finishtask.id}</td>
+					<td>${finishtask.title}</td>
+					<td>${finishtask.writerId}</td>
+					<td>${finishtask.regDate}</td>
+				</tr>
+			</c:forEach>
 			<tr>
 				<td colspan="2">페이징</td>
 				<td colspan="2">검색기능</td>

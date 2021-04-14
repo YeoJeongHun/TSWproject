@@ -8,9 +8,6 @@
 
 
 
-
-<%@ include file="../common/detailcss.jspf"%>
-
 <!-- 테이블 조정 -->
 <style type="text/css">
 form {
@@ -149,6 +146,5 @@ td {
 		</header>
 		<div class="title-bar">
 			<div class="mx-auto container">
-				<span>${pageTitle}</span>
 			</div>
 		</div>

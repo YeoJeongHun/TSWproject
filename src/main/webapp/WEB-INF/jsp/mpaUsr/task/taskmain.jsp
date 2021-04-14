@@ -7,8 +7,6 @@
 
 <%@ include file="../common/head.jspf"%>
 
-업무 표현 페이지
-${tasks}
 <br/>
 <%@ include file="taskShowList.jspf"%>
 	

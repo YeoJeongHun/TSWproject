@@ -4,7 +4,7 @@
 <style type="text/css">
 .task-box {
 	width: 80%;
-	background-color: white;
+	background-color: #F3FFFF;
 	margin: 0 auto;
 }
 

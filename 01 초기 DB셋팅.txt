@@ -13,20 +13,24 @@ delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부',
 delDate DATETIME COMMENT '삭제날짜',
 blindStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '숨김여부',
 blindDate DATETIME COMMENT '숨김날짜',
+FinishStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '처리완료여부',
+FinishDate DATETIME COMMENT '처리완료날짜',
+CheckStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '확인여부',
+CheckDate DATETIME COMMENT '확인날짜',
 writerId INT(10) UNSIGNED NOT NULL COMMENT '작성자',
 reciver INT(10) NOT NULL COMMENT '업무 받는 사람 테이블번호'
 );
 #업무 테스트 셋팅1
-INSERT INTO task SET title='title1', `body`='내용1', regDate=NOW(), updateDate=NOW(), writerId=2, taskPartId=1, reciver=1;
+INSERT INTO task SET title='title1', `body`='내용1', regDate=NOW(), updateDate=NOW(), writerId=2, reciver=1;
 #업무 테스트 셋팅1
-INSERT INTO task SET title='title2', `body`='내용2', regDate=NOW(), updateDate=NOW(), writerId=6, taskPartId=5, reciver=2;
+INSERT INTO task SET title='title2', `body`='내용2', regDate=NOW(), updateDate=NOW(), writerId=6, reciver=2;
 
 #부서 테이블 생성
 CREATE TABLE taskPart(
 id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '번호',
 department CHAR(30) NOT NULL COMMENT '부서이름',
-memberCount INT(10) COMMENT '부서 인원수',
-leaderId INT(10) COMMENT '팀장 번호'
+memberCount INT(10) DEFAULT 0 COMMENT '부서 인원수',
+leaderId INT(10) DEFAULT 0 COMMENT '팀장 번호'
 );
 #부서 테이블 값 입력
 #전체
@@ -188,7 +192,18 @@ INSERT INTO TaskReciver SET taskNum = 2, reciverId=12;
 
 
 
+SELECT DISTINCT t.*
+FROM task t
+INNER JOIN TaskReciver tr
+ON t.reciver = tr.taskNum
+INNER JOIN `member` m
+ON tr.reciverId = m.id
+INNER JOIN taskpart tp
+ON m.departmentId = tp.id;
 
+SELECT *FROM taskreciver;
+
+SELECT *FROM task;
 
 
 
