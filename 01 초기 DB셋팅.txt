@@ -13,17 +13,17 @@ delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부',
 delDate DATETIME COMMENT '삭제날짜',
 blindStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '숨김여부',
 blindDate DATETIME COMMENT '숨김날짜',
-FinishStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '처리완료여부',
-FinishDate DATETIME COMMENT '처리완료날짜',
-CheckStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '확인여부',
-CheckDate DATETIME COMMENT '확인날짜',
 writerId INT(10) UNSIGNED NOT NULL COMMENT '작성자',
-reciver INT(10) NOT NULL COMMENT '업무 받는 사람 테이블번호'
+reciverId INT(10) NOT NULL COMMENT '업무 받는 사람 테이블번호'
 );
 #업무 테스트 셋팅1
-INSERT INTO task SET title='title1', `body`='내용1', regDate=NOW(), updateDate=NOW(), writerId=2, reciver=1;
-#업무 테스트 셋팅1
-INSERT INTO task SET title='title2', `body`='내용2', regDate=NOW(), updateDate=NOW(), writerId=6, reciver=2;
+INSERT INTO task SET title='title1', `body`='내용1', regDate=NOW(), updateDate=NOW(), writerId=2, reciverId=1;
+#업무 테스트 셋팅2
+INSERT INTO task SET title='title2', `body`='내용2', regDate=NOW(), updateDate=NOW(), writerId=6, reciverId=2;
+#업무 테스트 셋팅3
+INSERT INTO task SET title='title3', `body`='내용3', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=3;
+#업무 테스트 셋팅4
+INSERT INTO task SET title='title4', `body`='내용4', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=4;
 
 #부서 테이블 생성
 CREATE TABLE taskPart(
@@ -170,7 +170,11 @@ gender = 1;
 CREATE TABLE TaskReciver(
 id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '번호',
 taskNum INT(10) NOT NULL COMMENT '업무 테이블 번호',
-reciverId INT(10) NOT NULL COMMENT '업무 수신자ID'
+reciverId INT(10) NOT NULL COMMENT '업무 수신자ID',
+FinishStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '처리완료여부',
+FinishDate DATETIME COMMENT '처리완료날짜',
+CheckStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '확인여부',
+CheckDate DATETIME COMMENT '확인날짜'
 );
 #1번글 수신자 셋팅
 INSERT INTO TaskReciver SET taskNum = 1, reciverId=2;
@@ -189,21 +193,38 @@ INSERT INTO TaskReciver SET taskNum = 2, reciverId=9;
 INSERT INTO TaskReciver SET taskNum = 2, reciverId=10;
 INSERT INTO TaskReciver SET taskNum = 2, reciverId=11;
 INSERT INTO TaskReciver SET taskNum = 2, reciverId=12;
+#3번글 수신자 셋팅
+INSERT INTO TaskReciver SET taskNum = 3, reciverId=10, CheckStatus=1, CheckDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 3, reciverId=11, CheckStatus=1, CheckDate=NOW();
+#4번글 수신자 셋팅
+INSERT INTO TaskReciver SET taskNum = 4, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 4, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
 
-
+SELECT * FROM taskreciver;
 
 SELECT DISTINCT t.*
 FROM task t
 INNER JOIN TaskReciver tr
-ON t.reciver = tr.taskNum
+ON t.reciverId = tr.taskNum
 INNER JOIN `member` m
 ON tr.reciverId = m.id
 INNER JOIN taskpart tp
-ON m.departmentId = tp.id;
+ON m.departmentId = tp.id
+WHERE tp.id=5
+AND tr.finishStatus=0;
 
 SELECT *FROM taskreciver;
 
 SELECT *FROM task;
+
+SELECT DISTINCT t.* FROM task t
+INNER JOIN taskreciver tr
+ON t.reciverId=tr.id
+WHERE tr.finishStatus=0;
+
+
+
+
 
 
 

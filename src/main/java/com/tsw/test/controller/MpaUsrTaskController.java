@@ -36,9 +36,9 @@ public class MpaUsrTaskController {
 	
 	@RequestMapping("/mpaUsr/task/taskmain")
 	public String taskmain(HttpServletRequest req, int taskPartId) {
-		List<Task> newtasks = taskservice.getTasksPart(taskPartId);
-		List<Task> ingtasks = taskservice.getTasksPart(taskPartId);
-		List<Task> finishtasks = taskservice.getTasksPart(taskPartId);
+		List<Task> newtasks = taskservice.getTasksPart(taskPartId, "new");
+		List<Task> ingtasks = taskservice.getTasksPart(taskPartId, "ing");
+		List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish");
 		req.setAttribute("newtasks", newtasks);
 		req.setAttribute("ingtasks", ingtasks);
 		req.setAttribute("finishtasks", finishtasks);

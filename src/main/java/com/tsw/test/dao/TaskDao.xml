@@ -29,15 +29,56 @@
 		SELECT DISTINCT t.*
 		FROM task t
 		INNER JOIN TaskReciver tr
-		ON t.reciver = tr.taskNum
+		ON t.reciverId =
+		tr.taskNum
 		INNER JOIN member m
 		ON tr.reciverId = m.id
-		INNER JOIN taskpart tp
+		INNER JOIN taskpart
+		tp
 		ON m.departmentId = tp.id
-		<if test="taskPartId !=1">
-			WHERE tp.id=#{taskPartId}
-		</if>
+		<choose>
+			<when test="taskPartId==1">
+				<choose>
+					<when test="status=='new'">
+						WHERE tr.checkStatus=0
+					</when>
+					<when test="status=='ing'">
+						WHERE tr.finishStatus=0
+						AND tr.checkStatus=1
+					</when>
+					<when test="status=='finish'">
+						WHERE tr.finishStatus=1
+						AND tr.checkStatus=1
+					</when>
+					<otherwise>
+						WHERE tp.id=0
+					</otherwise>
+				</choose>
+			</when>
+			<when test="status=='new'">
+				WHERE tp.id=#{taskPartId}
+				AND tr.checkStatus=0
+			</when>
+			<when test="status=='ing'">
+				WHERE tp.id=#{taskPartId}
+				AND tr.finishStatus=0
+				AND
+				tr.checkStatus=1
+			</when>
+			<when test="status=='finish'">
+				WHERE tp.id=#{taskPartId}
+				AND tr.finishStatus=1
+				AND
+				tr.checkStatus=1
+			</when>
+			<otherwise>
+				WHERE tp.id=0
+			</otherwise>
+		</choose>
 	</select>
+
+
+
 
 </mapper>
 

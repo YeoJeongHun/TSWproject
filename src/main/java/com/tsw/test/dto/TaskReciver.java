@@ -9,4 +9,8 @@ public class TaskReciver {
 	private int id;
 	private int taskNum;
 	private int reciverId;
+	private boolean finishStatus;
+	private String finishDate;
+	private boolean checkStatus;
+	private String checkDate;
 }
