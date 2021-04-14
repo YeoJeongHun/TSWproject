@@ -4,58 +4,89 @@
 
 <%@ include file="../common/detailcss.jspf"%>
 
-<h2>신규업무</h2>
-<div class="new-task-box">
-	<table class=table4_2>
-		<tr>
-			<th width="5%">번호</th>
-			<th width="60%">업무</th>
-			<th width="20%">작성자</th>
-			<th width="25%">작성시간</th>
-		</tr>
-		<tr>
-			<td>test</td>
-			<td>SAMPLE</td>
-			<td>test</td>
-			<td>test</td>
-		</tr>
-	</table>
-</div>
-<br />
-<br />
-<div class="ing-task-box">
-	<table class=table4_2>
-		<tr>
-			<th width="5%">번호</th>
-			<th width="60%">업무</th>
-			<th width="20%">작성자</th>
-			<th width="25%">작성시간</th>
-		</tr>
-		<tr>
-			<td>test</td>
-			<td>SAMPLE</td>
-			<td>test</td>
-			<td>test</td>
-		</tr>
-	</table>
-</div>
-<br />
-<br />
-<div class="finish-task-box">
-	<table class=table4_2>
-		<tr>
-			<th width="5%">번호</th>
-			<th width="60%">업무</th>
-			<th width="20%">작성자</th>
-			<th width="25%">작성시간</th>
-		</tr>
-		<tr>
-			<td>test</td>
-			<td>SAMPLE</td>
-			<td>test</td>
-			<td>test</td>
-		</tr>
-	</table>
+<div class="task-box">
+	<div class="new-task-box">
+		<table class="table">
+			<caption>신규 업무</caption>
+			<tr>
+				<th>No.</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>게시물 글 제목입니다</td>
+				<td>관리자</td>
+				<td>2018-08-01</td>
+			</tr>
+		</table>
+	</div>
+	<br /> <br />
+	<div class="ing-task-box">
+		<table class="table">
+			<caption>진행중 업무</caption>
+			<tr>
+				<th>No.</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>게시물 글 제목입니다</td>
+				<td>관리자</td>
+				<td>2018-08-01</td>
+			</tr>
+		</table>
+	</div>
+	<br /> <br />
+	<div class="finish-task-box">
+		<table class="table">
+			<caption>완료된 업무</caption>
+			<tr>
+				<th>No.</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>게시물 글 제목입니다</td>
+				<td>관리자</td>
+				<td>2018-08-01</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>게시물 글 제목입니다</td>
+				<td>관리자</td>
+				<td>2018-08-01</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>게시물 글 제목입니다</td>
+				<td>관리자</td>
+				<td>2018-08-01</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>게시물 글 제목입니다</td>
+				<td>관리자</td>
+				<td>2018-08-01</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>게시물 글 제목입니다</td>
+				<td>관리자</td>
+				<td>2018-08-01</td>
+			</tr>
+			<tr>
+				<td colspan="2">페이징</td>
+				<td colspan="2">검색기능</td>
+			</tr>
+		</table>
+	</div>
 </div>
 
 
+<!-- 테이블 참고 주소 : https://amaze9001.tistory.com/66 -->
