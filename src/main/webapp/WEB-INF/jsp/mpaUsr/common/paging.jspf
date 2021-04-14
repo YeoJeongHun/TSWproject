@@ -1,0 +1,61 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<form action="showTasks">
+	<input type="hidden" name="TaskPartId" value="${TaskPartId}">
+	<input type="hidden" name="page" value="${page}">
+	<input type="hidden" name="action" value="down">
+	<button type="submit">
+		<span><<</span>
+	</button>
+</form>
+<form action="showTasks">
+	<input type="hidden" name="TaskPartId" value="${TaskPartId}">
+	<input type="hidden" name="page" value="${page}">
+	<input type="hidden" name="action" value="down">
+	<button type="submit">
+		<span> < </span>
+	</button>
+</form>
+	<c:forEach var="i" begin="${startPage}" end="${finishPage}">
+		<form action="showTasks">
+			<input type="hidden" name="TaskPartId" value="${TaskPartId}">
+			<input type="hidden" name="page" value="${i}">
+			<input type="hidden" name="action" value="click">
+			<button type="submit">
+			<c:choose>
+				<c:when test="${i eq page}">
+					<span style="color: red;">${i}</span>
+				</c:when>
+				<c:otherwise>
+					<span>${i}</span>
+				</c:otherwise>
+			</c:choose>
+			</button>
+		</form>
+	</c:forEach>
+<form action="showTasks">
+	<input type="hidden" name="TaskPartId" value="${TaskPartId}">
+	<input type="hidden" name="page" value="${page}">
+	<input type="hidden" name="action" value="up">
+	<button type="submit">
+		<span>></span>
+	</button>
+</form>
+<form action="showTasks">
+	<input type="hidden" name="TaskPartId" value="${TaskPartId}">
+	<input type="hidden" name="page" value="${page}">
+	<input type="hidden" name="action" value="up">
+	<button type="submit">
+		<span>>></span>
+	</button>
+</form>
+<button><a href="/mpaUsr/task/writeTask?TaskPartId=${TaskPartId}">글쓰기</a></button>
+
+
+
+
+
+
+
+

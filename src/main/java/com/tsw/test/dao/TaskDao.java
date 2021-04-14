@@ -3,6 +3,7 @@ package com.tsw.test.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.tsw.test.dto.Member;
 import com.tsw.test.dto.Task;
@@ -19,6 +20,8 @@ public interface TaskDao {
 	List<Member> getMembers();
 
 	List<TaskReciver> getTaskRecivers();
+
+	List<Task> getTasksPart(@Param("taskPartId") int taskPartId);
 
 	
 }

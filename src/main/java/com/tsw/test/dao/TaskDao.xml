@@ -14,17 +14,30 @@
 		SELECT *
 		FROM taskPart
 	</select>
-	
+
 	<select id="getMembers" resultType="Member">
 		SELECT *
 		FROM member
 	</select>
-	
+
 	<select id="getTaskRecivers" resultType="TaskReciver">
 		SELECT *
 		FROM taskreciver
 	</select>
 
+	<select id="getTasksPart" resultType="Task">
+		SELECT DISTINCT t.*
+		FROM task t
+		INNER JOIN TaskReciver tr
+		ON t.reciver = tr.taskNum
+		INNER JOIN member m
+		ON tr.reciverId = m.id
+		INNER JOIN taskpart tp
+		ON m.departmentId = tp.id
+		<if test="taskPartId !=1">
+			WHERE tp.id=#{taskPartId}
+		</if>
+	</select>
 
 </mapper>
 

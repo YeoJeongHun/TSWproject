@@ -36,5 +36,9 @@ public class TaskService {
 		return taskdao.getTaskRecivers();
 	}
 
+	public List<Task> getTasksPart(int taskPartId) {
+		return taskdao.getTasksPart(taskPartId);
+	}
+
 
 }

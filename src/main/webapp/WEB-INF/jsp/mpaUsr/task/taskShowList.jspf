@@ -1,0 +1,61 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ include file="../common/detailcss.jspf"%>
+
+<h2>신규업무</h2>
+<div class="new-task-box">
+	<table class=table4_2>
+		<tr>
+			<th width="5%">번호</th>
+			<th width="60%">업무</th>
+			<th width="20%">작성자</th>
+			<th width="25%">작성시간</th>
+		</tr>
+		<tr>
+			<td>test</td>
+			<td>SAMPLE</td>
+			<td>test</td>
+			<td>test</td>
+		</tr>
+	</table>
+</div>
+<br />
+<br />
+<div class="ing-task-box">
+	<table class=table4_2>
+		<tr>
+			<th width="5%">번호</th>
+			<th width="60%">업무</th>
+			<th width="20%">작성자</th>
+			<th width="25%">작성시간</th>
+		</tr>
+		<tr>
+			<td>test</td>
+			<td>SAMPLE</td>
+			<td>test</td>
+			<td>test</td>
+		</tr>
+	</table>
+</div>
+<br />
+<br />
+<div class="finish-task-box">
+	<table class=table4_2>
+		<tr>
+			<th width="5%">번호</th>
+			<th width="60%">업무</th>
+			<th width="20%">작성자</th>
+			<th width="25%">작성시간</th>
+		</tr>
+		<tr>
+			<td>test</td>
+			<td>SAMPLE</td>
+			<td>test</td>
+			<td>test</td>
+		</tr>
+	</table>
+</div>
+
+
