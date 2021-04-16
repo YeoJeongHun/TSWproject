@@ -51,6 +51,8 @@
 					<when test="status=='finish'">
 						WHERE tr.finishStatus=1
 						AND tr.checkStatus=1
+						ORDER BY t.id DESC
+						LIMIT #{startId}, 5
 					</when>
 					<otherwise>
 						WHERE tp.id=0
@@ -72,6 +74,8 @@
 				AND tr.finishStatus=1
 				AND
 				tr.checkStatus=1
+				ORDER BY t.id DESC
+				LIMIT #{startId}, 5
 			</when>
 			<otherwise>
 				WHERE tp.id=0
@@ -89,8 +93,15 @@
 		ON tr.reciverId = m.id
 		INNER JOIN taskpart tp
 		ON m.departmentId = tp.id
-		WHERE tp.id=#{taskPartId}
-		AND tr.finishStatus=1
+		<choose>
+			<when test="taskPartId==1">
+				WHERE tr.finishStatus=1
+			</when>
+			<otherwise>
+				WHERE tp.id=#{taskPartId}
+				AND tr.finishStatus=1
+			</otherwise>
+		</choose>
 	</select>
 
 

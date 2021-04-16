@@ -25,7 +25,7 @@
 }
 
 .finish-task-box {
-	height: 360px;
+	height: 353px;
 	border: 1px solid black;
 	background-color: white;
 	margin: 0 auto;

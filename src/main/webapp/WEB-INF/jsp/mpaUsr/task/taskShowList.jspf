@@ -65,18 +65,36 @@
 			</c:forEach>
 			<tr>
 				<td colspan="2">
-					<c:forEach var="i" begin="1" end="${finishTotalPage}">
+					<c:set var="startPage" value="${page-4 > 0 ? page-4 : 1}"/>
+					<c:set var="finishPage" value="${page+4 <= finishTotalPage ? page+4 : finishTotalPage}"/>
+					<span>
+						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${1}">◀◀</a>
+					</span>
+					<span>
+						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${page-9}">◀</a>
+					</span>
+					<c:forEach var="i" begin="${startPage}" end="${finishPage}">
 						<c:choose>
 							<c:when test="${i eq page}">
-								<span class="text-red-500"><a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${i}">${i}  </a></span>
+								<span class="text-red-500">
+									<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${i}">${i}  </a>
+								</span>
 							</c:when>
 							<c:otherwise>
-								<span><a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${i}">${i}  </a></span>
+								<span>
+									<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${i}">${i}  </a>
+								</span>
 							</c:otherwise>
 						</c:choose>  
 					</c:forEach>
+					<span>
+						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${page+9}">▶</a>
+					</span>
+					<span>
+						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${finishTotalPage}">▶▶</a>
+					</span>
 				</td>
-				<td colspan="2">검색기능</td>
+				<td colspan="2">검색기능${startPage }  마지막페이지 ${finishPage}</td>
 			</tr>
 		</table>
 	</div>

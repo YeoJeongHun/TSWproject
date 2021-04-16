@@ -36,12 +36,13 @@ public class TaskService {
 		return taskdao.getTaskRecivers();
 	}
 
-	public List<Task> getTasksPart(int taskPartId, String status) {
-		return taskdao.getTasksPart(taskPartId, status);
+	public List<Task> getTasksPart(int taskPartId, String status, int page) {
+		int startId = page*5-5;
+		return taskdao.getTasksPart(taskPartId, status, startId);
 	}
 
 	public int getFinishTotalPage(int taskPartId) {
-		return taskdao.getFinishTotalPage(taskPartId);
+		return (int) Math.ceil(taskdao.getFinishTotalPage(taskPartId)/5.0);
 	}
 
 
