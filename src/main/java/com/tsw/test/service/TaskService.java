@@ -40,5 +40,30 @@ public class TaskService {
 		return taskdao.getTasksPart(taskPartId, status);
 	}
 
+	public int getFinishTotalPage(int taskPartId) {
+		return taskdao.getFinishTotalPage(taskPartId);
+	}
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -64,7 +64,11 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="2">페이징</td>
+				<td colspan="2">
+					<c:forEach var="i" begin="1" end="${finishTotalPage}">
+						${i}  
+					</c:forEach>
+				</td>
 				<td colspan="2">검색기능</td>
 			</tr>
 		</table>

@@ -29,11 +29,13 @@
 		SELECT DISTINCT t.*
 		FROM task t
 		INNER JOIN TaskReciver tr
-		ON t.reciverId =
+		ON t.reciverId
+		=
 		tr.taskNum
 		INNER JOIN member m
 		ON tr.reciverId = m.id
-		INNER JOIN taskpart
+		INNER JOIN
+		taskpart
 		tp
 		ON m.departmentId = tp.id
 		<choose>
@@ -75,6 +77,20 @@
 				WHERE tp.id=0
 			</otherwise>
 		</choose>
+	</select>
+
+	<select id="getFinishTotalPage" resultType="int">
+		SELECT COUNT(DISTINCT
+		t.id)
+		FROM task t
+		INNER JOIN TaskReciver tr
+		ON t.reciverId = tr.taskNum
+		INNER JOIN `member` m
+		ON tr.reciverId = m.id
+		INNER JOIN taskpart tp
+		ON m.departmentId = tp.id
+		WHERE tp.id=#{taskPartId}
+		AND tr.finishStatus=1
 	</select>
 
 

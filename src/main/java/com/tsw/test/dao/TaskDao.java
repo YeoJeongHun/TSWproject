@@ -23,5 +23,7 @@ public interface TaskDao {
 
 	List<Task> getTasksPart(@Param("taskPartId") int taskPartId, @Param("status") String status);
 
+	int getFinishTotalPage(@Param("taskPartId") int taskPartId);
+
 	
 }
