@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tsw.test.dto.Member;
 import com.tsw.test.dto.Task;
@@ -35,7 +36,7 @@ public class MpaUsrTaskController {
 	}
 	
 	@RequestMapping("/mpaUsr/task/taskmain")
-	public String taskmain(HttpServletRequest req, int taskPartId) {
+	public String taskmain(HttpServletRequest req, int taskPartId, @RequestParam(defaultValue = "1") int page) {
 		List<Task> newtasks = taskservice.getTasksPart(taskPartId, "new");
 		List<Task> ingtasks = taskservice.getTasksPart(taskPartId, "ing");
 		List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish");
@@ -45,6 +46,8 @@ public class MpaUsrTaskController {
 		
 		int finishTotalPage = taskservice.getFinishTotalPage(taskPartId);
 		req.setAttribute("finishTotalPage", finishTotalPage);
+		req.setAttribute("page", page);
+		req.setAttribute("taskPartId", taskPartId);
 		
 		return "mpaUsr/task/taskmain";
 	}
