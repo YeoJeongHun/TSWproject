@@ -45,6 +45,10 @@ public class TaskService {
 		return (int) Math.ceil(taskdao.getFinishTotalPage(taskPartId)/5.0);
 	}
 
+	public List<Task> getSearchTask(int taskPartId, String searchType, String search, int page) {
+		return null;
+	}
+
 
 }
 
