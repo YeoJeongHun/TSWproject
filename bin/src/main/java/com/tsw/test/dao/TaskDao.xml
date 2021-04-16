@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tsw.test.dao.TaskDao">
+
+	<select id="getTasks" resultType="Task">
+		SELECT *
+		FROM TASK
+	</select>
+
+	<select id="getTaskParts" resultType="TaskPart">
+		SELECT *
+		FROM taskPart
+	</select>
+
+	<select id="getMembers" resultType="Member">
+		SELECT *
+		FROM member
+	</select>
+
+	<select id="getTaskRecivers" resultType="TaskReciver">
+		SELECT *
+		FROM taskreciver
+	</select>
+
+	<select id="getTasksPart" resultType="Task">
+		SELECT DISTINCT t.*
+		FROM task t
+		INNER JOIN TaskReciver tr
+		ON t.reciverId =
+		tr.taskNum
+		INNER JOIN member m
+		ON tr.reciverId = m.id
+		INNER JOIN taskpart
+		tp
+		ON m.departmentId = tp.id
+		<choose>
+			<when test="taskPartId==1">
+				<choose>
+					<when test="status=='new'">
+						WHERE tr.checkStatus=0
+					</when>
+					<when test="status=='ing'">
+						WHERE tr.finishStatus=0
+						AND tr.checkStatus=1
+					</when>
+					<when test="status=='finish'">
+						WHERE tr.finishStatus=1
+						AND tr.checkStatus=1
+					</when>
+					<otherwise>
+						WHERE tp.id=0
+					</otherwise>
+				</choose>
+			</when>
+			<when test="status=='new'">
+				WHERE tp.id=#{taskPartId}
+				AND tr.checkStatus=0
+			</when>
+			<when test="status=='ing'">
+				WHERE tp.id=#{taskPartId}
+				AND tr.finishStatus=0
+				AND
+				tr.checkStatus=1
+			</when>
+			<when test="status=='finish'">
+				WHERE tp.id=#{taskPartId}
+				AND tr.finishStatus=1
+				AND
+				tr.checkStatus=1
+			</when>
+			<otherwise>
+				WHERE tp.id=0
+			</otherwise>
+		</choose>
+	</select>
+
+
+
+
+</mapper>
+
+

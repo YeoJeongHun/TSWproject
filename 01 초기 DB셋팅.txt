@@ -223,6 +223,329 @@ ON t.reciverId=tr.id
 WHERE tr.finishStatus=0;
 
 
+#완료건에 대한 테스트 DB입력
+#업무 테스트 셋팅5
+INSERT INTO task SET title='title5', `body`='내용5', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=5;
+INSERT INTO TaskReciver SET taskNum = 5, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 5, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅6
+INSERT INTO task SET title='title6', `body`='내용6', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=6;
+INSERT INTO TaskReciver SET taskNum = 6, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 6, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅7
+INSERT INTO task SET title='title7', `body`='내용7', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=7;
+INSERT INTO TaskReciver SET taskNum = 7, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 7, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅8
+INSERT INTO task SET title='title8', `body`='내용8', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=8;
+INSERT INTO TaskReciver SET taskNum = 8, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 8, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅9
+INSERT INTO task SET title='title9', `body`='내용9', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=9;
+INSERT INTO TaskReciver SET taskNum = 9, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 9, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅10
+INSERT INTO task SET title='title10', `body`='내용10', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=10;
+INSERT INTO TaskReciver SET taskNum = 10, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 10, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅11
+INSERT INTO task SET title='title11', `body`='내용11', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=11;
+INSERT INTO TaskReciver SET taskNum = 11, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 11, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅12
+INSERT INTO task SET title='title12', `body`='내용12', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=12;
+INSERT INTO TaskReciver SET taskNum = 12, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 12, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅13
+INSERT INTO task SET title='title13', `body`='내용13', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=13;
+INSERT INTO TaskReciver SET taskNum = 13, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 13, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅14
+INSERT INTO task SET title='title14', `body`='내용14', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=14;
+INSERT INTO TaskReciver SET taskNum = 14, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 14, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅15
+INSERT INTO task SET title='title15', `body`='내용15', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=15;
+INSERT INTO TaskReciver SET taskNum = 15, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 15, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅16
+INSERT INTO task SET title='title16', `body`='내용16', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=16;
+INSERT INTO TaskReciver SET taskNum = 16, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 16, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅17
+INSERT INTO task SET title='title17', `body`='내용17', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=17;
+INSERT INTO TaskReciver SET taskNum = 17, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 17, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅18
+INSERT INTO task SET title='title18', `body`='내용18', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=18;
+INSERT INTO TaskReciver SET taskNum = 18, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 18, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅19
+INSERT INTO task SET title='title19', `body`='내용19', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=19;
+INSERT INTO TaskReciver SET taskNum = 19, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 19, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅20
+INSERT INTO task SET title='title20', `body`='내용20', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=20;
+INSERT INTO TaskReciver SET taskNum = 20, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 20, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅21
+INSERT INTO task SET title='title21', `body`='내용21', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=21;
+INSERT INTO TaskReciver SET taskNum = 21, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 21, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅22
+INSERT INTO task SET title='title22', `body`='내용22', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=22;
+INSERT INTO TaskReciver SET taskNum = 22, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 22, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅23
+INSERT INTO task SET title='title23', `body`='내용23', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=23;
+INSERT INTO TaskReciver SET taskNum = 23, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 23, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅24
+INSERT INTO task SET title='title24', `body`='내용24', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=24;
+INSERT INTO TaskReciver SET taskNum = 24, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 24, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅25
+INSERT INTO task SET title='title25', `body`='내용25', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=25;
+INSERT INTO TaskReciver SET taskNum = 25, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 25, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅26
+INSERT INTO task SET title='title26', `body`='내용26', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=26;
+INSERT INTO TaskReciver SET taskNum = 26, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 26, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅27
+INSERT INTO task SET title='title27', `body`='내용27', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=27;
+INSERT INTO TaskReciver SET taskNum = 27, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 27, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅28
+INSERT INTO task SET title='title28', `body`='내용28', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=28;
+INSERT INTO TaskReciver SET taskNum = 28, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 28, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅29
+INSERT INTO task SET title='title29', `body`='내용29', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=29;
+INSERT INTO TaskReciver SET taskNum = 29, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 29, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅30
+INSERT INTO task SET title='title30', `body`='내용30', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=30;
+INSERT INTO TaskReciver SET taskNum = 30, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 30, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅31
+INSERT INTO task SET title='title31', `body`='내용31', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=31;
+INSERT INTO TaskReciver SET taskNum = 31, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 31, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅32
+INSERT INTO task SET title='title32', `body`='내용32', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=32;
+INSERT INTO TaskReciver SET taskNum = 32, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 32, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅33
+INSERT INTO task SET title='title33', `body`='내용33', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=33;
+INSERT INTO TaskReciver SET taskNum = 33, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 33, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅34
+INSERT INTO task SET title='title34', `body`='내용34', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=34;
+INSERT INTO TaskReciver SET taskNum = 34, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 34, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅35
+INSERT INTO task SET title='title35', `body`='내용35', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=35;
+INSERT INTO TaskReciver SET taskNum = 35, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 35, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅36
+INSERT INTO task SET title='title36', `body`='내용36', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=36;
+INSERT INTO TaskReciver SET taskNum = 36, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 36, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅37
+INSERT INTO task SET title='title37', `body`='내용37', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=37;
+INSERT INTO TaskReciver SET taskNum = 37, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 37, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅38
+INSERT INTO task SET title='title38', `body`='내용38', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=38;
+INSERT INTO TaskReciver SET taskNum = 38, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 38, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅39
+INSERT INTO task SET title='title39', `body`='내용39', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=39;
+INSERT INTO TaskReciver SET taskNum = 39, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 39, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅40
+INSERT INTO task SET title='title40', `body`='내용40', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=40;
+INSERT INTO TaskReciver SET taskNum = 40, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 40, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅41
+INSERT INTO task SET title='title41', `body`='내용41', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=41;
+INSERT INTO TaskReciver SET taskNum = 41, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 41, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅42
+INSERT INTO task SET title='title42', `body`='내용42', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=42;
+INSERT INTO TaskReciver SET taskNum = 42, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 42, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅43
+INSERT INTO task SET title='title43', `body`='내용43', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=43;
+INSERT INTO TaskReciver SET taskNum = 43, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 43, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅44
+INSERT INTO task SET title='title44', `body`='내용44', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=44;
+INSERT INTO TaskReciver SET taskNum = 44, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 44, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅45
+INSERT INTO task SET title='title45', `body`='내용45', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=45;
+INSERT INTO TaskReciver SET taskNum = 45, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 45, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅46
+INSERT INTO task SET title='title46', `body`='내용46', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=46;
+INSERT INTO TaskReciver SET taskNum = 46, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 46, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅47
+INSERT INTO task SET title='title47', `body`='내용47', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=47;
+INSERT INTO TaskReciver SET taskNum = 47, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 47, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅48
+INSERT INTO task SET title='title48', `body`='내용48', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=48;
+INSERT INTO TaskReciver SET taskNum = 48, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 48, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅49
+INSERT INTO task SET title='title49', `body`='내용49', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=49;
+INSERT INTO TaskReciver SET taskNum = 49, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 49, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅50
+INSERT INTO task SET title='title50', `body`='내용50', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=50;
+INSERT INTO TaskReciver SET taskNum = 50, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 50, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅51
+INSERT INTO task SET title='title51', `body`='내용51', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=51;
+INSERT INTO TaskReciver SET taskNum = 51, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 51, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅52
+INSERT INTO task SET title='title52', `body`='내용52', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=52;
+INSERT INTO TaskReciver SET taskNum = 52, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 52, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅53
+INSERT INTO task SET title='title53', `body`='내용53', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=53;
+INSERT INTO TaskReciver SET taskNum = 53, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 53, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅54
+INSERT INTO task SET title='title54', `body`='내용54', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=54;
+INSERT INTO TaskReciver SET taskNum = 54, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 54, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅55
+INSERT INTO task SET title='title55', `body`='내용55', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=55;
+INSERT INTO TaskReciver SET taskNum = 55, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 55, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅56
+INSERT INTO task SET title='title56', `body`='내용56', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=56;
+INSERT INTO TaskReciver SET taskNum = 56, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 56, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅57
+INSERT INTO task SET title='title57', `body`='내용57', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=57;
+INSERT INTO TaskReciver SET taskNum = 57, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 57, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅58
+INSERT INTO task SET title='title58', `body`='내용58', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=58;
+INSERT INTO TaskReciver SET taskNum = 58, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 58, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅59
+INSERT INTO task SET title='title59', `body`='내용59', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=59;
+INSERT INTO TaskReciver SET taskNum = 59, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 59, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅60
+INSERT INTO task SET title='title60', `body`='내용60', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=60;
+INSERT INTO TaskReciver SET taskNum = 60, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 60, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅61
+INSERT INTO task SET title='title61', `body`='내용61', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=61;
+INSERT INTO TaskReciver SET taskNum = 61, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 61, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅62
+INSERT INTO task SET title='title62', `body`='내용62', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=62;
+INSERT INTO TaskReciver SET taskNum = 62, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 62, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅63
+INSERT INTO task SET title='title63', `body`='내용63', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=63;
+INSERT INTO TaskReciver SET taskNum = 63, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 63, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅64
+INSERT INTO task SET title='title64', `body`='내용64', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=64;
+INSERT INTO TaskReciver SET taskNum = 64, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 64, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅65
+INSERT INTO task SET title='title65', `body`='내용65', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=65;
+INSERT INTO TaskReciver SET taskNum = 65, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 65, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅67
+INSERT INTO task SET title='title67', `body`='내용67', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=67;
+INSERT INTO TaskReciver SET taskNum = 67, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 67, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅68
+INSERT INTO task SET title='title68', `body`='내용68', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=68;
+INSERT INTO TaskReciver SET taskNum = 68, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 68, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅69
+INSERT INTO task SET title='title69', `body`='내용69', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=69;
+INSERT INTO TaskReciver SET taskNum = 69, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 69, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅70
+INSERT INTO task SET title='title70', `body`='내용70', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=70;
+INSERT INTO TaskReciver SET taskNum = 70, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 70, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅71
+INSERT INTO task SET title='title71', `body`='내용71', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=71;
+INSERT INTO TaskReciver SET taskNum = 71, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 71, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅72
+INSERT INTO task SET title='title72', `body`='내용72', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=72;
+INSERT INTO TaskReciver SET taskNum = 72, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 72, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅73
+INSERT INTO task SET title='title73', `body`='내용73', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=73;
+INSERT INTO TaskReciver SET taskNum = 73, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 73, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅74
+INSERT INTO task SET title='title74', `body`='내용74', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=74;
+INSERT INTO TaskReciver SET taskNum = 74, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 74, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅75
+INSERT INTO task SET title='title75', `body`='내용75', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=75;
+INSERT INTO TaskReciver SET taskNum = 75, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 75, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅76
+INSERT INTO task SET title='title76', `body`='내용76', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=76;
+INSERT INTO TaskReciver SET taskNum = 76, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 76, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅77
+INSERT INTO task SET title='title77', `body`='내용77', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=77;
+INSERT INTO TaskReciver SET taskNum = 77, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 77, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅78
+INSERT INTO task SET title='title78', `body`='내용78', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=78;
+INSERT INTO TaskReciver SET taskNum = 78, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 78, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅79
+INSERT INTO task SET title='title79', `body`='내용79', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=79;
+INSERT INTO TaskReciver SET taskNum = 79, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 79, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅80
+INSERT INTO task SET title='title80', `body`='내용80', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=80;
+INSERT INTO TaskReciver SET taskNum = 80, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 80, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅81
+INSERT INTO task SET title='title81', `body`='내용81', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=81;
+INSERT INTO TaskReciver SET taskNum = 81, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 81, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅82
+INSERT INTO task SET title='title82', `body`='내용82', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=82;
+INSERT INTO TaskReciver SET taskNum = 82, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 82, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅83
+INSERT INTO task SET title='title83', `body`='내용83', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=83;
+INSERT INTO TaskReciver SET taskNum = 83, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 83, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅84
+INSERT INTO task SET title='title84', `body`='내용84', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=84;
+INSERT INTO TaskReciver SET taskNum = 84, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 84, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+
+
+
+
+
+
 
 
 
