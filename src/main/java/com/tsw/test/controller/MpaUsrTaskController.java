@@ -38,19 +38,13 @@ public class MpaUsrTaskController {
 	@RequestMapping("/mpaUsr/task/taskmain")
 	public String taskmain(HttpServletRequest req, int taskPartId, @RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "") String searchType, @RequestParam(defaultValue = "") String search) {
-		List<Task> newtasks = taskservice.getTasksPart(taskPartId, "new", page);
-		List<Task> ingtasks = taskservice.getTasksPart(taskPartId, "ing", page);
+		List<Task> newtasks = taskservice.getTasksPart(taskPartId, "new", page, searchType, search);
+		List<Task> ingtasks = taskservice.getTasksPart(taskPartId, "ing", page, searchType, search);
 		req.setAttribute("newtasks", newtasks);
 		req.setAttribute("ingtasks", ingtasks);
 		
-		if(searchType.equals("")) {
-			List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish", page);
-			req.setAttribute("finishtasks", finishtasks);			
-		}
-		else {
-			List<Task> searchTask = taskservice.getSearchTask(taskPartId, searchType, search, page);
-			req.setAttribute("searchTask", searchTask);		
-		}
+		List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish", page, searchType, search);
+		req.setAttribute("finishtasks", finishtasks);	
 		
 		
 		int finishTotalPage = taskservice.getFinishTotalPage(taskPartId);

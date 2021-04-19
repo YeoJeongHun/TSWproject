@@ -85,7 +85,7 @@
 									<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${i}">${i}  </a>
 								</span>
 							</c:otherwise>
-						</c:choose>  
+						</c:choose>
 					</c:forEach>
 					<span>
 						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${page+9}">▶</a>

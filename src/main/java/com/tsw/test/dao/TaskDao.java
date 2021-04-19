@@ -25,5 +25,7 @@ public interface TaskDao {
 
 	int getFinishTotalPage(@Param("taskPartId") int taskPartId);
 
+	List<Task> getTasksPartSearch(@Param("taskPartId") int taskPartId, @Param("startId") int startId, @Param("searchType") String searchType, @Param("search") String search);
+
 	
 }

@@ -51,7 +51,8 @@
 					<when test="status=='finish'">
 						WHERE tr.finishStatus=1
 						AND tr.checkStatus=1
-						ORDER BY t.id DESC
+						ORDER BY
+						t.id DESC
 						LIMIT #{startId}, 5
 					</when>
 					<otherwise>
@@ -83,12 +84,40 @@
 		</choose>
 	</select>
 
+	<select id="getTasksPartSearch" resultType="Task">
+		SELECT DISTINCT t.*
+		FROM task t
+		INNER JOIN TaskReciver tr
+		ON t.reciverId = tr.taskNum
+		INNER JOIN `member` m
+		ON tr.reciverId = m.id
+		INNER JOIN taskpart tp
+		ON m.departmentId = tp.id
+		<choose>
+			<when test="searchType=='TB'">
+				WHERE t.title LIKE CONCAT('%',#{search},'%')
+				OR t.body LIKE CONCAT('%',#{search},'%')
+			</when>
+			<when test="searchType=='T'">
+				WHERE t.title LIKE CONCAT('%',#{search},'%')
+			</when>
+			<when test="searchType=='B'">
+				WHERE t.body LIKE CONCAT('%',#{search},'%')
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+
+
+
 	<select id="getFinishTotalPage" resultType="int">
 		SELECT COUNT(DISTINCT
 		t.id)
 		FROM task t
 		INNER JOIN TaskReciver tr
-		ON t.reciverId = tr.taskNum
+		ON
+		t.reciverId = tr.taskNum
 		INNER JOIN `member` m
 		ON tr.reciverId = m.id
 		INNER JOIN taskpart tp

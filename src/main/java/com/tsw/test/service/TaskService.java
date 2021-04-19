@@ -36,19 +36,21 @@ public class TaskService {
 		return taskdao.getTaskRecivers();
 	}
 
-	public List<Task> getTasksPart(int taskPartId, String status, int page) {
+	public List<Task> getTasksPart(int taskPartId, String status, int page, String searchType, String search) {
 		int startId = page*5-5;
+		
+		//검색기능이 수행됐을때
+		if(!(searchType.equals(""))||!(search.trim().length()==0)) {
+			return taskdao.getTasksPartSearch(taskPartId, startId, searchType, search);
+		}
+		
+		//검색없이 리스트를 표현할때
 		return taskdao.getTasksPart(taskPartId, status, startId);
 	}
 
 	public int getFinishTotalPage(int taskPartId) {
 		return (int) Math.ceil(taskdao.getFinishTotalPage(taskPartId)/5.0);
 	}
-
-	public List<Task> getSearchTask(int taskPartId, String searchType, String search, int page) {
-		return null;
-	}
-
 
 }
 
