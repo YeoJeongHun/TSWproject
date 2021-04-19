@@ -39,13 +39,15 @@ public class TaskService {
 	public List<Task> getTasksPart(int taskPartId, String status, int page, String searchType, String search) {
 		int startId = page*5-5;
 		
-		//검색기능이 수행됐을때
-		if(!(searchType.equals(""))||!(search.trim().length()==0)) {
+		//new, ing의 경우
+		if(status.equals("new")||status.equals("ing")) {
+			return taskdao.getTasksNewIng(taskPartId, status);
+		}
+		//finish의 경우
+		else if(status.equals("finish")) {
 			return taskdao.getTasksPartSearch(taskPartId, startId, searchType, search);
 		}
-		
-		//검색없이 리스트를 표현할때
-		return taskdao.getTasksPart(taskPartId, status, startId);
+		return null;
 	}
 
 	public int getFinishTotalPage(int taskPartId) {

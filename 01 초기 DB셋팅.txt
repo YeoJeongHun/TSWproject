@@ -202,16 +202,6 @@ INSERT INTO TaskReciver SET taskNum = 4, reciverId=11, CheckStatus=1, CheckDate=
 
 SELECT * FROM taskreciver;
 
-SELECT DISTINCT t.*
-FROM task t
-INNER JOIN TaskReciver tr
-ON t.reciverId = tr.taskNum
-INNER JOIN `member` m
-ON tr.reciverId = m.id
-INNER JOIN taskpart tp
-ON m.departmentId = tp.id
-WHERE tp.id=5
-AND tr.finishStatus=0;
 
 SELECT *FROM taskreciver;
 
@@ -540,11 +530,53 @@ INSERT INTO TaskReciver SET taskNum = 83, reciverId=11, CheckStatus=1, CheckDate
 INSERT INTO task SET title='title84', `body`='내용84', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=84;
 INSERT INTO TaskReciver SET taskNum = 84, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
 INSERT INTO TaskReciver SET taskNum = 84, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+#업무 테스트 셋팅85
+INSERT INTO task SET title='title85', `body`='내용85', regDate=NOW(), updateDate=NOW(), writerId=1, reciverId=85;
+INSERT INTO TaskReciver SET taskNum = 85, reciverId=10, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
+INSERT INTO TaskReciver SET taskNum = 85, reciverId=11, CheckStatus=1, CheckDate=NOW(), FinishStatus=1, FinishDate=NOW();
 
 
+SELECT DISTINCT t.*
+FROM task t
+INNER JOIN TaskReciver tr
+ON t.reciverId = tr.taskNum
+INNER JOIN `member` m
+ON tr.reciverId = m.id
+INNER JOIN taskpart tp
+ON m.departmentId = tp.id
+WHERE tp.id=6
+AND tr.finishStatus=1
+ORDER BY t.id DESC
+LIMIT 33, 5;
+
+SELECT COUNT(DISTINCT t.id)
+FROM task t
+INNER JOIN TaskReciver tr
+ON t.reciverId = tr.taskNum
+INNER JOIN `member` m
+ON tr.reciverId = m.id
+INNER JOIN taskpart tp
+ON m.departmentId = tp.id
+WHERE tp.id=6
+AND tr.finishStatus=1;
 
 
+SELECT DISTINCT t.*
+FROM task t
+INNER JOIN TaskReciver tr
+ON t.reciverId = tr.taskNum
+INNER JOIN `member` m
+ON tr.reciverId = m.id
+INNER JOIN taskpart tp
+ON m.departmentId = tp.id
+WHERE (t.title LIKE '%1%'
+OR t.body LIKE '%2%')
+AND m.departmentId=6
+ORDER BY t.id DESC
+LIMIT 1, 5;
 
+
+SELECT *FROM `member`;
 
 
 

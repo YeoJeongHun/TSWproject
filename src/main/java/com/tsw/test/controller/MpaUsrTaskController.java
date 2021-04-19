@@ -40,10 +40,9 @@ public class MpaUsrTaskController {
 			@RequestParam(defaultValue = "") String searchType, @RequestParam(defaultValue = "") String search) {
 		List<Task> newtasks = taskservice.getTasksPart(taskPartId, "new", page, searchType, search);
 		List<Task> ingtasks = taskservice.getTasksPart(taskPartId, "ing", page, searchType, search);
+		List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish", page, searchType, search);
 		req.setAttribute("newtasks", newtasks);
 		req.setAttribute("ingtasks", ingtasks);
-		
-		List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish", page, searchType, search);
 		req.setAttribute("finishtasks", finishtasks);	
 		
 		

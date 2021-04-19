@@ -25,65 +25,49 @@
 		FROM taskreciver
 	</select>
 
-	<select id="getTasksPart" resultType="Task">
+	<select id="getTasksNewIng" resultType="Task">
 		SELECT DISTINCT t.*
 		FROM task t
 		INNER JOIN TaskReciver tr
-		ON t.reciverId
-		=
-		tr.taskNum
-		INNER JOIN member m
+		ON t.reciverId = tr.taskNum
+		INNER JOIN `member` m
 		ON tr.reciverId = m.id
-		INNER JOIN
-		taskpart
-		tp
+		INNER JOIN taskpart tp
 		ON m.departmentId = tp.id
 		<choose>
-			<when test="taskPartId==1">
+			<when test="taskPartId=1">
 				<choose>
 					<when test="status=='new'">
-						WHERE tr.checkStatus=0
+						WHERE tr.CheckStatus=0
 					</when>
 					<when test="status=='ing'">
-						WHERE tr.finishStatus=0
-						AND tr.checkStatus=1
-					</when>
-					<when test="status=='finish'">
-						WHERE tr.finishStatus=1
-						AND tr.checkStatus=1
-						ORDER BY
-						t.id DESC
-						LIMIT #{startId}, 5
+						WHERE tr.CheckStatus=1
+						AND tr.FinishStatus=0
 					</when>
 					<otherwise>
-						WHERE tp.id=0
+						WHERE t.id=0
 					</otherwise>
 				</choose>
 			</when>
-			<when test="status=='new'">
-				WHERE tp.id=#{taskPartId}
-				AND tr.checkStatus=0
-			</when>
-			<when test="status=='ing'">
-				WHERE tp.id=#{taskPartId}
-				AND tr.finishStatus=0
-				AND
-				tr.checkStatus=1
-			</when>
-			<when test="status=='finish'">
-				WHERE tp.id=#{taskPartId}
-				AND tr.finishStatus=1
-				AND
-				tr.checkStatus=1
-				ORDER BY t.id DESC
-				LIMIT #{startId}, 5
-			</when>
 			<otherwise>
-				WHERE tp.id=0
+				<choose>
+					<when test="status=='new'">
+						WHERE tr.CheckStatus=0
+						AND m.departmentId=#{taskPartId}
+					</when>
+					<when test="status=='ing'">
+						WHERE tr.CheckStatus=1
+						AND tr.FinishStatus=0
+						AND m.departmentId=#{taskPartId}
+					</when>
+					<otherwise>
+						WHERE t.id=0
+					</otherwise>
+				</choose>
 			</otherwise>
 		</choose>
 	</select>
-
+	
 	<select id="getTasksPartSearch" resultType="Task">
 		SELECT DISTINCT t.*
 		FROM task t
@@ -94,19 +78,40 @@
 		INNER JOIN taskpart tp
 		ON m.departmentId = tp.id
 		<choose>
-			<when test="searchType=='TB'">
-				WHERE t.title LIKE CONCAT('%',#{search},'%')
-				OR t.body LIKE CONCAT('%',#{search},'%')
-			</when>
-			<when test="searchType=='T'">
-				WHERE t.title LIKE CONCAT('%',#{search},'%')
-			</when>
-			<when test="searchType=='B'">
-				WHERE t.body LIKE CONCAT('%',#{search},'%')
+			<when test="taskPartId=1">
+				<choose>
+					<when test="searchType='TB'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%')
+					</when>
+					<when test="searchType='T'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+					</when>
+					<when test="searchType='B'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+					</when>
+				</choose>
 			</when>
 			<otherwise>
+				<choose>
+					<when test="searchType='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND m.departmentId=#{taskPartId}
+					</when>
+					<when test="searchType='T'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+					</when>
+					<when test="searchType='B'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+					</when>
+				</choose>
 			</otherwise>
 		</choose>
+		ORDER BY t.id DESC
+		LIMIT #{startId}, 5
 	</select>
 
 

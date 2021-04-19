@@ -21,11 +21,11 @@ public interface TaskDao {
 
 	List<TaskReciver> getTaskRecivers();
 
-	List<Task> getTasksPart(@Param("taskPartId") int taskPartId, @Param("status") String status, @Param("startId") int startId);
-
 	int getFinishTotalPage(@Param("taskPartId") int taskPartId);
 
 	List<Task> getTasksPartSearch(@Param("taskPartId") int taskPartId, @Param("startId") int startId, @Param("searchType") String searchType, @Param("search") String search);
+
+	List<Task> getTasksNewIng(@Param("taskPartId") int taskPartId, @Param("status") String status);
 
 	
 }
