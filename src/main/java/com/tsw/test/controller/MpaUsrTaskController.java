@@ -43,9 +43,12 @@ public class MpaUsrTaskController {
 		List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish", page, searchType, search);
 		req.setAttribute("newtasks", newtasks);
 		req.setAttribute("ingtasks", ingtasks);
-		req.setAttribute("finishtasks", finishtasks);	
+		req.setAttribute("finishtasks", finishtasks);
+
+		req.setAttribute("searchType", searchType);
+		req.setAttribute("search", search);
 		
-		int finishTotalPage = taskservice.getFinishTotalPage(taskPartId);
+		int finishTotalPage = taskservice.getFinishTotalPage(taskPartId, searchType, search);
 		req.setAttribute("finishTotalPage", finishTotalPage);
 		
 		return "mpaUsr/task/taskmain";

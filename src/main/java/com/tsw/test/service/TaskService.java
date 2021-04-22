@@ -50,8 +50,8 @@ public class TaskService {
 		return null;
 	}
 
-	public int getFinishTotalPage(int taskPartId) {
-		return (int) Math.ceil(taskdao.getFinishTotalPage(taskPartId)/5.0);
+	public int getFinishTotalPage(int taskPartId, String searchType, String search) {
+		return (int) Math.ceil(taskdao.getFinishTotalPage(taskPartId, searchType, search)/5.0);
 	}
 
 }

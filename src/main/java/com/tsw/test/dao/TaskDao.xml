@@ -35,7 +35,7 @@
 		INNER JOIN taskpart tp
 		ON m.departmentId = tp.id
 		<choose>
-			<when test="taskPartId=1">
+			<when test="taskPartId==1">
 				<choose>
 					<when test="status=='new'">
 						WHERE tr.CheckStatus=0
@@ -78,35 +78,45 @@
 		INNER JOIN taskpart tp
 		ON m.departmentId = tp.id
 		<choose>
-			<when test="taskPartId=1">
+			<when test="taskPartId==1">
 				<choose>
-					<when test="searchType='TB'">
-						WHERE t.title LIKE CONCAT('%',#{search},'%')
-						OR t.body LIKE CONCAT('%',#{search},'%')
+					<when test="searchType=='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND tr.finishStatus=1
 					</when>
-					<when test="searchType='T'">
+					<when test="searchType=='Ti'">
 						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
 					</when>
-					<when test="searchType='B'">
+					<when test="searchType=='Bo'">
 						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
 					</when>
+					<otherwise>
+					</otherwise>
 				</choose>
 			</when>
 			<otherwise>
 				<choose>
-					<when test="searchType='TB'">
+					<when test="searchType=='TB'">
 						WHERE (t.title LIKE CONCAT('%',#{search},'%')
 						OR t.body LIKE CONCAT('%',#{search},'%'))
 						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
 					</when>
-					<when test="searchType='T'">
+					<when test="searchType=='Ti'">
 						WHERE t.title LIKE CONCAT('%',#{search},'%')
 						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
 					</when>
-					<when test="searchType='B'">
+					<when test="searchType=='Bo'">
 						WHERE t.body LIKE CONCAT('%',#{search},'%')
 						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
 					</when>
+					<otherwise>
+					</otherwise>
 				</choose>
 			</otherwise>
 		</choose>
@@ -129,11 +139,45 @@
 		ON m.departmentId = tp.id
 		<choose>
 			<when test="taskPartId==1">
-				WHERE tr.finishStatus=1
+				<choose>
+					<when test="searchType=='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Ti'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Bo'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
+					</when>
+					<otherwise>
+					</otherwise>
+				</choose>
 			</when>
 			<otherwise>
-				WHERE tp.id=#{taskPartId}
-				AND tr.finishStatus=1
+				<choose>
+					<when test="searchType=='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Ti'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Bo'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<otherwise>
+					</otherwise>
+				</choose>
 			</otherwise>
 		</choose>
 	</select>
