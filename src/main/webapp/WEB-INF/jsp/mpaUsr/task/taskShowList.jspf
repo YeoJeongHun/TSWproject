@@ -65,38 +65,39 @@
 			</c:forEach>
 			<tr>
 				<td colspan="2">
-					<c:set var="startPage" value="${page-4 > 0 ? page-4 : 1}"/>
-					<c:set var="finishPage" value="${page+4 <= finishTotalPage ? page+4 : finishTotalPage}"/>
+					<c:set var="startPage" value="${param.page-4 > 0 ? param.page-4 : 1}"/>
+					<c:set var="finishPage" value="${param.page+4 <= finishTotalPage ? param.page+4 : finishTotalPage}"/>
+					<c:set var="urlsetting" value="/mpaUsr/task/taskmain?taskPartId=${param.taskPartId}&page=" />
 					<span>
-						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${1}">◀◀</a>
+						<a href="${urlsetting}1">◀◀</a>
 					</span>
 					<span>
-						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${page-9}">◀</a>
+						<a href="${urlsetting}${param.page-9}">◀</a>
 					</span>
 					<c:forEach var="i" begin="${startPage}" end="${finishPage}">
 						<c:choose>
-							<c:when test="${i eq page}">
+							<c:when test="${i eq param.page}">
 								<span class="text-red-500">
-									<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${i}">${i}  </a>
+									<a href="/mpaUsr/task/taskmain?taskPartId=${param.taskPartId}&page=${i}">${i}  </a>
 								</span>
 							</c:when>
 							<c:otherwise>
 								<span>
-									<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${i}">${i}  </a>
+									<a href="/mpaUsr/task/taskmain?taskPartId=${param.taskPartId}&page=${i}">${i}  </a>
 								</span>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					<span>
-						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${page+9}">▶</a>
+						<a href="${urlsetting}${param.page+9}">▶</a>
 					</span>
 					<span>
-						<a href="/mpaUsr/task/taskmain?taskPartId=${taskPartId}&page=${finishTotalPage}">▶▶</a>
+						<a href="${urlsetting}${finishTotalPage}">▶▶</a>
 					</span>
 				</td>
 				<td colspan="2">
 					<form action="taskmain">
-						<input type="hidden" name="taskPartId" value="${taskPartId}">
+						<input type="hidden" name="taskPartId" value="${param.taskPartId}">
 						<select name="searchType" class="search-option">
 							<option value="TB">제목+내용</option>
 							<option value="T">제목</option>

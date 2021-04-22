@@ -45,11 +45,8 @@ public class MpaUsrTaskController {
 		req.setAttribute("ingtasks", ingtasks);
 		req.setAttribute("finishtasks", finishtasks);	
 		
-		
 		int finishTotalPage = taskservice.getFinishTotalPage(taskPartId);
 		req.setAttribute("finishTotalPage", finishTotalPage);
-		req.setAttribute("page", page);
-		req.setAttribute("taskPartId", taskPartId);
 		
 		return "mpaUsr/task/taskmain";
 	}
