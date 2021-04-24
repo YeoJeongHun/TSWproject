@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tsw.test.dto.Member;
+import com.tsw.test.dto.MemberForDetail;
 import com.tsw.test.dto.Task;
 import com.tsw.test.dto.TaskPart;
 import com.tsw.test.dto.TaskReciver;
@@ -22,22 +23,13 @@ public class MpaUsrTaskController {
 	
 	@RequestMapping("/")
 	public String test(HttpServletRequest req) {
-		List<Task> tasks = taskservice.getTasks();
-		List<TaskPart> taskParts = taskservice.getTaskParts();
-		List<Member> members = taskservice.getMembers();
-		List<TaskReciver> taskrecivers = taskservice.getTaskRecivers();
-		
-		req.setAttribute("tasks", tasks);
-		req.setAttribute("taskParts", taskParts);
-		req.setAttribute("members", members);
-		req.setAttribute("taskrecivers", taskrecivers);
 		
 		return "mpaUsr/main";
 	}
 	
 	@RequestMapping("/mpaUsr/task/taskmain")
 	public String taskmain(HttpServletRequest req, int taskPartId, @RequestParam(defaultValue = "1") int page,
-			@RequestParam(defaultValue = "") String searchType, @RequestParam(defaultValue = "") String search) {
+			@RequestParam(defaultValue = "TB") String searchType, @RequestParam(defaultValue = "") String search) {
 		List<Task> newtasks = taskservice.getTasksPart(taskPartId, "new", page, searchType, search);
 		List<Task> ingtasks = taskservice.getTasksPart(taskPartId, "ing", page, searchType, search);
 		List<Task> finishtasks = taskservice.getTasksPart(taskPartId, "finish", page, searchType, search);
@@ -53,6 +45,21 @@ public class MpaUsrTaskController {
 		
 		return "mpaUsr/task/taskmain";
 	}
+	
+	@RequestMapping("/mpaUsr/task/detail")
+	public String detail(HttpServletRequest req, int taskId) {
+		Task task = taskservice.getTask(taskId);
+		List<MemberForDetail> taskRecivers = taskservice.getTaskRecivers(taskId);
+		Member writer = taskservice.getWriter(task.getWriterId());
+
+		req.setAttribute("task", task);
+		req.setAttribute("taskRecivers", taskRecivers);
+		req.setAttribute("writer", writer);
+		
+		return "mpaUsr/task/detail";
+	}
+	
+	
 }
 
 

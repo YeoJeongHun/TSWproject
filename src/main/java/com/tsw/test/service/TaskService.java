@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.tsw.test.dao.TaskDao;
 import com.tsw.test.dto.Member;
+import com.tsw.test.dto.MemberForDetail;
 import com.tsw.test.dto.Task;
 import com.tsw.test.dto.TaskPart;
 import com.tsw.test.dto.TaskReciver;
@@ -31,9 +32,9 @@ public class TaskService {
 		return taskdao.getMembers();
 	}
 
-	public List<TaskReciver> getTaskRecivers() {
+	public List<MemberForDetail> getTaskRecivers(int taskId) {
 		// TODO Auto-generated method stub
-		return taskdao.getTaskRecivers();
+		return taskdao.getTaskRecivers(taskId);
 	}
 
 	public List<Task> getTasksPart(int taskPartId, String status, int page, String searchType, String search) {
@@ -52,6 +53,14 @@ public class TaskService {
 
 	public int getFinishTotalPage(int taskPartId, String searchType, String search) {
 		return (int) Math.ceil(taskdao.getFinishTotalPage(taskPartId, searchType, search)/5.0);
+	}
+
+	public Task getTask(int taskId) {
+		return taskdao.getTask(taskId);
+	}
+
+	public Member getWriter(int writerId) {
+		return taskdao.getWriter(writerId);
 	}
 
 }

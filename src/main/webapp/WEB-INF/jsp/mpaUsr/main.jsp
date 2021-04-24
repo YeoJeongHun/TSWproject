@@ -7,14 +7,6 @@
 
 <%@ include file="common/head.jspf"%>
 	test
-	<hr/>
-	${tasks}
-	<hr/>
-	${taskParts}
-	<hr/>
-	${members}
-	<hr/>
-	${taskrecivers}
 	
 	
 <%@ include file="common/foot.jspf"%>

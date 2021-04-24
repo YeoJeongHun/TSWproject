@@ -20,9 +20,19 @@
 		FROM member
 	</select>
 
-	<select id="getTaskRecivers" resultType="TaskReciver">
-		SELECT *
-		FROM taskreciver
+	<select id="getTaskRecivers" resultType="MemberForDetail">
+		SELECT tr.id, m.name, m.rank, tp.id, tp.department
+		FROM taskreciver tr
+		INNER JOIN `member` m
+		ON tr.reciverId=m.id
+		INNER JOIN taskpart tp
+		ON m.departmentId=tp.id
+		WHERE taskNum=#{taskId}
+	</select>
+	
+	<select id="getWriter" resultType="Member">
+		SELECT *FROM `member`
+		WHERE id=#{writerId}
 	</select>
 
 	<select id="getTasksNewIng" resultType="Task">
@@ -182,6 +192,11 @@
 		</choose>
 	</select>
 
+	<select id="getTask" resultType="Task">
+		SELECT *FROM task
+		WHERE task.id=#{taskId}
+		AND delStatus=0
+	</select>
 
 
 

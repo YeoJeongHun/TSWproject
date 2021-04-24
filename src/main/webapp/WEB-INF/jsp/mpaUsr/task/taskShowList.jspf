@@ -18,7 +18,7 @@
 			<c:forEach items="${newtasks}" var="newtask">
 				<tr>
 					<td>${newtask.id}</td>
-					<td>${newtask.title}</td>
+					<td><a href="detail?taskId=${newtask.id}">${newtask.title}</a></td>
 					<td>${newtask.writerId}</td>
 					<td>${newtask.regDate}</td>
 				</tr>
@@ -38,7 +38,7 @@
 			<c:forEach items="${ingtasks}" var="ingtask">
 				<tr>
 					<td>${ingtask.id}</td>
-					<td>${ingtask.title}</td>
+					<td><a href="detail?taskId=${ingtask.id}">${ingtask.title}</a></td>
 					<td>${ingtask.writerId}</td>
 					<td>${ingtask.regDate}</td>
 				</tr>
@@ -58,7 +58,7 @@
 			<c:forEach items="${finishtasks}" var="finishtask">
 				<tr>
 					<td>${finishtask.id}</td>
-					<td>${finishtask.title}</td>
+					<td><a href="detail?taskId=${finishtask.id}">${finishtask.title}</a></td>
 					<td>${finishtask.writerId}</td>
 					<td>${finishtask.regDate}</td>
 				</tr>
