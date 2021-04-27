@@ -4,7 +4,7 @@
 <style type="text/css">
 .task-box {
 	width: 80%;
-	background-color: #F3FFFF;
+	background-color: #555555;
 	margin: 0 auto;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .finish-task-box {
-	height: 353px;
+	height: 363px;
 	border: 1px solid black;
 	background-color: white;
 	margin: 0 auto;
@@ -67,13 +67,13 @@
 	align: "left"
 }
 .search-box {
-	width: 60%;
+	width: 50%;
 	border: 1px solid black;
 	border-radius: 8px;
 	text-align: center;
 }
 .search-button {
-	width: 12%;
+	width: 17%;
 	text-align: center;
 	background-color: #AABBFF;
 	border-radius: 20px;
