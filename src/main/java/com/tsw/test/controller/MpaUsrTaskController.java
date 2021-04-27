@@ -23,6 +23,12 @@ public class MpaUsrTaskController {
 	
 	@RequestMapping("/")
 	public String test(HttpServletRequest req) {
+		int a=1111;
+		int b=2222;
+		int c=3333;
+		
+		String test=Integer.toString(a)+Integer.toString(b)+Integer.toString(c);
+		req.setAttribute("test", test);
 		
 		return "mpaUsr/main";
 	}

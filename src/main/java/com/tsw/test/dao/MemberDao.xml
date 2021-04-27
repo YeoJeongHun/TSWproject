@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tsw.test.dao.MemberDao">
+
+	<insert id="doJoin">
+		INSERT INTO member
+		SET name = #{name},
+		loginId = #{id},
+		loginPw = #{pw},
+		departmentId = #{department},
+		rank = #{rank},
+		gender = #{gender},
+		birthDate=#{birth},
+		workStartDate = #{enterDate};
+	</insert>
+
+
+
+</mapper>
+
+
