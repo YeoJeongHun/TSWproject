@@ -19,6 +19,25 @@ public class Util {
         return "mpaUsr/common/redirect";
     }
 	
+    public static String msgAndBack(String msg) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<script>");
+        sb.append("alert('" + msg + "');");
+        sb.append("history.back();");
+        sb.append("</script>");
+
+        return sb.toString();
+    }
+
+    public static String msgAndReplace(String msg, String uri) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<script>");
+        sb.append("alert('" + msg + "');");
+        sb.append("location.replace('" + uri + "');");
+        sb.append("</script>");
+
+        return sb.toString();
+    }
 
 }
 
