@@ -30,15 +30,42 @@ public class MpaUsrMemberController {
 
 	@RequestMapping("/mpaUsr/member/doJoin")
 	public String doJoin(HttpServletRequest req, String id, String pw, String cpw,
-			String name, String rank, int department, int gender,
+			String name, String rank, int department, Integer gender,
 			int birthYear, int birthMonth, int birthDay,
 			int enterYear, int enterMonth, int enterDay) {
 		
+		if(id.trim().equals("")) {
+			return Util.msgAndBack(req, "아이디를 입력해주세요.");
+		}
+		if(pw.trim().equals("")) {
+			return Util.msgAndBack(req, "비밀번호를 입력해주세요.");
+		}
+		if(!cpw.trim().equals(pw.trim())) {
+			return Util.msgAndBack(req, "확인비밀번호가 일치하지 않습니다.");
+		}
+		if(name.trim().equals("")) {
+			return Util.msgAndBack(req, "이름을 입력해주세요.");
+		}
+		if(rank.trim().equals("")) {
+			return Util.msgAndBack(req, "직급을 입력해주세요.");
+		}
+		if(department==1) {
+			return Util.msgAndBack(req, "부서를 체크해주세요.");
+		}
+		if(gender==null) {
+			return Util.msgAndBack(req, "성별을 체크해주세요.");
+		}
+		
 		String birth = Integer.toString(birthYear)+"-"+Integer.toString(birthMonth)+"-"+Integer.toString(birthDay);
 		String enterDate = Integer.toString(enterYear)+"-"+Integer.toString(enterMonth)+"-"+Integer.toString(enterDay);
+		
+		Member checkMember = memberservice.getMemberById(id);
+		if(checkMember!=null) {
+			return Util.msgAndBack(req,"사용중인 ID입니다.");
+		}
 		memberservice.doJoin(id, pw, name, rank, department, gender, birth, enterDate);
 		
-		return "mpaUsr/member/LoginPage";
+		return Util.msgAndReplace(req,"회원가입이 완료되었습니다.","LoginPage");
 	}
 	
 	@RequestMapping("/mpaUsr/member/doLogin")

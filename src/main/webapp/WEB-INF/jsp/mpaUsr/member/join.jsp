@@ -12,11 +12,11 @@
       </div>
       <div class="idForm">
       	<div class="idtext float-left">PASSWORD</div>
-		<div style="width: 60%;" class="border-b-2 border-gray-300 float-left"><input type="text" style="width: 100%;" class="id" name="pw"></div>
+		<div style="width: 60%;" class="border-b-2 border-gray-300 float-left"><input type="password" style="width: 100%;" class="id" name="pw"></div>
       </div>
       <div class="idForm">
       	<div class="idtext float-left">CHECK PW</div>
-		<div style="width: 60%;" class="border-b-2 border-gray-300 float-left"><input type="text" style="width: 100%;" class="id" name="cpw"></div>
+		<div style="width: 60%;" class="border-b-2 border-gray-300 float-left"><input type="password" style="width: 100%;" class="id" name="cpw"></div>
       </div>
       <div class="idForm">
       	<div class="idtext float-left">NAME</div>
@@ -68,7 +68,7 @@
       	<div class="idtext float-left">ENTERED</div>
 		<div style="width: 60%;" class="float-left pt-1">
 			<select style="width: 30%;" name="enterYear">
-      			<c:forEach var="year" begin="1945" end="2002">
+      			<c:forEach var="year" begin="2010" end="2022">
       				<option value="${year}">${year}</option>
       			</c:forEach>
       		</select>
@@ -90,11 +90,6 @@
       <button type="submit" class="btn" onclick="button()">
         JOIN
       </button>
-      <script>
-      	let button = () => {
-        	alert('Welcome to TSW !')
-        }
-      </script>
     </form>
     <br/>
   </body>
