@@ -12,11 +12,16 @@
 		loginPw = #{pw},
 		departmentId = #{department},
 		rank = #{rank},
-		gender = #{gender},
+		gender =
+		#{gender},
 		birthDate=#{birth},
 		workStartDate = #{enterDate};
 	</insert>
 
+	<select id="getMemberById" resultType="Member">
+		SELECT *FROM member
+		WHERE loginId=#{loginId}
+	</select>
 
 
 </mapper>

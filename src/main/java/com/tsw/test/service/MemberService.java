@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tsw.test.dao.MemberDao;
+import com.tsw.test.dto.Member;
 
 @Service
 public class MemberService {
@@ -14,6 +15,10 @@ public class MemberService {
 			String enterDate) {
 		memberdao.doJoin(id, pw, name, rank, department, gender, birth, enterDate);
 		
+	}
+
+	public Member getMemberById(String loginId) {
+		return memberdao.getMemberById(loginId);
 	}
 
 	

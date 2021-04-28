@@ -17,6 +17,8 @@ public interface MemberDao {
 	void doJoin(@Param("id") String id, @Param("pw") String pw, @Param("name") String name, @Param("rank") String rank, @Param("department") int department,
 			@Param("gender") int gender, @Param("birth") String birth, @Param("enterDate") String enterDate);
 
+	Member getMemberById(@Param("loginId") String loginId);
+
 	
 	
 }

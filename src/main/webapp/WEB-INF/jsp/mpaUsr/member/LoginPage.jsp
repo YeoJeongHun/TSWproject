@@ -7,19 +7,14 @@
     <form action="doLogin" method="post" class="loginForm">
       <h2>Login</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="ID">
+        <input type="text" class="id" placeholder="ID" name="loginId">
       </div>
       <div class="passForm">
-        <input type="password" class="pw" placeholder="PW">
+        <input type="password" class="pw" placeholder="PW" name="loginPw">
       </div>
-      <button type="button" class="btn" onclick="button()">
+      <button type="submit" class="btn">
         LOG IN
       </button>
-      <script>
-      	let button = () => {
-        	alert('login Button !')
-        }
-      </script>
       <div class="bottomText">
         Don't you have ID? <a href="join">sign up</a>
       </div>

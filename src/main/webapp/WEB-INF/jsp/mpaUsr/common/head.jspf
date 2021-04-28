@@ -124,7 +124,7 @@ td {
 							</span> <span class="hidden md:block">&nbsp;업무지시</span>
 						</a></li>
 						<c:choose>
-							<c:when test="${empty LoginedMember}">
+							<c:when test="${empty loginedMember}">
 							<li><a href="/mpaUsr/member/LoginPage" class="h-full flex items-center px-5">
 										<span> <i class="fas fa-sign-out-alt"></i>
 									</span> <span class="hidden md:block">&nbsp;SIGN IN</span>
