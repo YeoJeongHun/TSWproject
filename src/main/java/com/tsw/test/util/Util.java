@@ -50,6 +50,14 @@ public class Util {
 			return str;
 		}
 	}
+    
+    public static String makeFullUriAndEncoded(HttpServletRequest req) {
+        String afterLoginUrl = req.getRequestURI();
+    	if(req.getQueryString()!=null) {
+    		afterLoginUrl = afterLoginUrl + "?" + req.getQueryString();
+    	}
+    	return Util.getUrlEncoded(afterLoginUrl);
+    }
 
 }
 
