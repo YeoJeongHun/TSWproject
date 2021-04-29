@@ -1,5 +1,8 @@
 package com.tsw.test.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
@@ -38,6 +41,15 @@ public class Util {
 
         return sb.toString();
     }
+    
+    //인코딩 된 값 반환 (사용 : 로그인 요구 후 직전 페이지로 이동되게 하는 기능)
+    public static String getUrlEncoded(String str) {
+		try {
+			return URLEncoder.encode(str, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			return str;
+		}
+	}
 
 }
 
