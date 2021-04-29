@@ -23,7 +23,7 @@ public class NeedToLoginInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler) throws Exception {
     	if(req.getAttribute("loginedMember")==null) {
     		res.setContentType("text/html; charset=UTF-8");
-            res.getWriter().append(Util.msgAndBack("로그인 후 이용해주세요."));
+            res.getWriter().append(Util.msgAndReplace("로그인 후 이용해주세요.", "../member/join"));
             return false;
     	}
     	
