@@ -126,10 +126,13 @@ td {
 						<c:choose>
 							<c:when test="${empty loginedMember}">
 								<li>
-									<a href="/mpaUsr/member/LoginPage${afterLoginUrl}" class="h-full flex items-center px-5">
-										<span> <i class="fas fa-sign-out-alt"></i></span>
-										<span class="hidden md:block">&nbsp;SIGN IN</span>
-									</a>
+									<form action="/mpaUsr/member/LoginPage">
+										<input type="hidden" name="afterLoginUrl" value="${makeAfterURI}">
+										<button type="submit" class="h-full flex items-center px-5">
+											<span> <i class="fas fa-sign-out-alt"></i></span>
+											<span class="hidden md:block">&nbsp;SIGN IN</span>
+										</button>
+									</form>
 								</li>							
 							</c:when>
 							<c:otherwise>
