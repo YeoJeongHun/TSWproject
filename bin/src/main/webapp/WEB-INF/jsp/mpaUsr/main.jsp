@@ -6,15 +6,7 @@
 	value="<span><i class='fas fa-home'></i></span> <span>HOME</span>" />
 
 <%@ include file="common/head.jspf"%>
-	test
-	<hr/>
-	${tasks}
-	<hr/>
-	${taskParts}
-	<hr/>
-	${members}
-	<hr/>
-	${taskrecivers}
+	${test }
 	
 	
 <%@ include file="common/foot.jspf"%>

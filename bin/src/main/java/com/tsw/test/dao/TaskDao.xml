@@ -20,63 +20,183 @@
 		FROM member
 	</select>
 
-	<select id="getTaskRecivers" resultType="TaskReciver">
-		SELECT *
-		FROM taskreciver
+	<select id="getTaskRecivers" resultType="MemberForDetail">
+		SELECT tr.id, m.name, m.rank, tp.id, tp.department
+		FROM taskreciver tr
+		INNER JOIN `member` m
+		ON tr.reciverId=m.id
+		INNER JOIN taskpart tp
+		ON m.departmentId=tp.id
+		WHERE taskNum=#{taskId}
+	</select>
+	
+	<select id="getWriter" resultType="Member">
+		SELECT *FROM `member`
+		WHERE id=#{writerId}
 	</select>
 
-	<select id="getTasksPart" resultType="Task">
+	<select id="getTasksNewIng" resultType="Task">
 		SELECT DISTINCT t.*
 		FROM task t
 		INNER JOIN TaskReciver tr
-		ON t.reciverId =
-		tr.taskNum
-		INNER JOIN member m
+		ON t.reciverId = tr.taskNum
+		INNER JOIN `member` m
 		ON tr.reciverId = m.id
-		INNER JOIN taskpart
-		tp
+		INNER JOIN taskpart tp
 		ON m.departmentId = tp.id
 		<choose>
 			<when test="taskPartId==1">
 				<choose>
 					<when test="status=='new'">
-						WHERE tr.checkStatus=0
+						WHERE tr.CheckStatus=0
 					</when>
 					<when test="status=='ing'">
-						WHERE tr.finishStatus=0
-						AND tr.checkStatus=1
-					</when>
-					<when test="status=='finish'">
-						WHERE tr.finishStatus=1
-						AND tr.checkStatus=1
+						WHERE tr.CheckStatus=1
+						AND tr.FinishStatus=0
 					</when>
 					<otherwise>
-						WHERE tp.id=0
+						WHERE t.id=0
 					</otherwise>
 				</choose>
 			</when>
-			<when test="status=='new'">
-				WHERE tp.id=#{taskPartId}
-				AND tr.checkStatus=0
-			</when>
-			<when test="status=='ing'">
-				WHERE tp.id=#{taskPartId}
-				AND tr.finishStatus=0
-				AND
-				tr.checkStatus=1
-			</when>
-			<when test="status=='finish'">
-				WHERE tp.id=#{taskPartId}
-				AND tr.finishStatus=1
-				AND
-				tr.checkStatus=1
+			<otherwise>
+				<choose>
+					<when test="status=='new'">
+						WHERE tr.CheckStatus=0
+						AND m.departmentId=#{taskPartId}
+					</when>
+					<when test="status=='ing'">
+						WHERE tr.CheckStatus=1
+						AND tr.FinishStatus=0
+						AND m.departmentId=#{taskPartId}
+					</when>
+					<otherwise>
+						WHERE t.id=0
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getTasksPartSearch" resultType="Task">
+		SELECT DISTINCT t.*
+		FROM task t
+		INNER JOIN TaskReciver tr
+		ON t.reciverId = tr.taskNum
+		INNER JOIN `member` m
+		ON tr.reciverId = m.id
+		INNER JOIN taskpart tp
+		ON m.departmentId = tp.id
+		<choose>
+			<when test="taskPartId==1">
+				<choose>
+					<when test="searchType=='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Ti'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Bo'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
+					</when>
+					<otherwise>
+					</otherwise>
+				</choose>
 			</when>
 			<otherwise>
-				WHERE tp.id=0
+				<choose>
+					<when test="searchType=='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Ti'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Bo'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<otherwise>
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+		ORDER BY t.id DESC
+		LIMIT #{startId}, 5
+	</select>
+
+
+
+	<select id="getFinishTotalPage" resultType="int">
+		SELECT COUNT(DISTINCT
+		t.id)
+		FROM task t
+		INNER JOIN TaskReciver tr
+		ON
+		t.reciverId = tr.taskNum
+		INNER JOIN `member` m
+		ON tr.reciverId = m.id
+		INNER JOIN taskpart tp
+		ON m.departmentId = tp.id
+		<choose>
+			<when test="taskPartId==1">
+				<choose>
+					<when test="searchType=='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Ti'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Bo'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND tr.finishStatus=1
+					</when>
+					<otherwise>
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				<choose>
+					<when test="searchType=='TB'">
+						WHERE (t.title LIKE CONCAT('%',#{search},'%')
+						OR t.body LIKE CONCAT('%',#{search},'%'))
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Ti'">
+						WHERE t.title LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<when test="searchType=='Bo'">
+						WHERE t.body LIKE CONCAT('%',#{search},'%')
+						AND m.departmentId=#{taskPartId}
+						AND tr.finishStatus=1
+					</when>
+					<otherwise>
+					</otherwise>
+				</choose>
 			</otherwise>
 		</choose>
 	</select>
 
+	<select id="getTask" resultType="Task">
+		SELECT *FROM task
+		WHERE task.id=#{taskId}
+		AND delStatus=0
+	</select>
 
 
 

@@ -18,13 +18,15 @@ public class MpaUsrMemberController {
 
 	@RequestMapping("/mpaUsr/member/LoginPage")
 	public String loginPage(HttpServletRequest req) {
-
+		if(req.getQueryString()!=null) {
+			req.setAttribute("afterLoginUrl", Util.redirectLoginPage(req));
+			req.setAttribute("redirectAfterLogin", Util.querySplit(req));
+		}
 		return "mpaUsr/member/LoginPage";
 	}
 	
 	@RequestMapping("/mpaUsr/member/join")
 	public String join(HttpServletRequest req) {
-
 		return "mpaUsr/member/join";
 	}
 
@@ -69,7 +71,7 @@ public class MpaUsrMemberController {
 	}
 	
 	@RequestMapping("/mpaUsr/member/doLogin")
-	public String doLogin(HttpServletRequest req, HttpSession session, String loginId, String loginPw) {
+	public String doLogin(HttpServletRequest req, HttpSession session, String loginId, String loginPw, String redirectAfterLogin) {
 		if(loginId.trim().equals("")) {
 			return Util.msgAndBack(req, "아이디를 입력해주세요.");
 		}
@@ -85,9 +87,11 @@ public class MpaUsrMemberController {
 		if(!loginedMember.getLoginPw().equals(loginPw)) {
 			return Util.msgAndBack(req, "회원정보가 일치하지 않습니다.");
 		}
-		
 		session.setAttribute("loginedMember",loginedMember);
 		
+		if(redirectAfterLogin!=null) {
+			return Util.msgAndReplace(req,"환영합니다."+loginedMember.getName()+"님",redirectAfterLogin);
+		}
 		return Util.msgAndReplace(req,"환영합니다."+loginedMember.getName()+"님","/");
 	}
 	

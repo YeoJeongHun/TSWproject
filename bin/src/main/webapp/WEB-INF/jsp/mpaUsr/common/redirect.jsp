@@ -10,12 +10,8 @@ const historyBack = '${historyBack}' == 'true';
 if ( historyBack ) {
 	history.back();
 }
-const replaceUrl = '${replaceUrl}'.trim();
-if ( replaceUrl ) {
-	location.replace(replaceUrl);
-}
-const relocation = '${relocation}'.trim();
-if ( relocation ) {
-	location.href='${relocation}';
+const replaceUri = '${replaceUri}'.trim();
+if ( replaceUri ) {
+	location.replace(replaceUri);
 }
 </script>

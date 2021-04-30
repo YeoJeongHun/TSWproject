@@ -32,7 +32,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         
         registry.addInterceptor(needToLoginInterceptor)
         	.addPathPatterns("/mpaUsr/member/doLogout")
-    		.addPathPatterns("/mpaUsr/task/taskmain")
     		.addPathPatterns("/mpaUsr/task/detail");
 
     	registry.addInterceptor(needToLogoutInterceptor)

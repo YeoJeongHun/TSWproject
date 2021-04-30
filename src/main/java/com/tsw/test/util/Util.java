@@ -1,6 +1,7 @@
 package com.tsw.test.util;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,6 +58,19 @@ public class Util {
     		afterLoginUrl = afterLoginUrl + "?" + req.getQueryString();
     	}
     	return Util.getUrlEncoded(afterLoginUrl);
+    }
+    
+    public static String redirectLoginPage(HttpServletRequest req) {
+    	if(req.getQueryString()!=null) {
+    		return "?" + req.getQueryString();
+    	}
+    	return null;
+    }
+    
+    public static String querySplit(HttpServletRequest req) {
+    	String afterLoginUrl = req.getQueryString();
+    	afterLoginUrl = URLDecoder.decode(afterLoginUrl);
+    	return afterLoginUrl.replaceFirst("afterLoginUrl=", "");
     }
 
 }

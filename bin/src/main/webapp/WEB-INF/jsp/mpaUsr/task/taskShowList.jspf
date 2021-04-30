@@ -18,7 +18,7 @@
 			<c:forEach items="${newtasks}" var="newtask">
 				<tr>
 					<td>${newtask.id}</td>
-					<td>${newtask.title}</td>
+					<td><a href="detail?taskId=${newtask.id}">${newtask.title}</a></td>
 					<td>${newtask.writerId}</td>
 					<td>${newtask.regDate}</td>
 				</tr>
@@ -38,7 +38,7 @@
 			<c:forEach items="${ingtasks}" var="ingtask">
 				<tr>
 					<td>${ingtask.id}</td>
-					<td>${ingtask.title}</td>
+					<td><a href="detail?taskId=${ingtask.id}">${ingtask.title}</a></td>
 					<td>${ingtask.writerId}</td>
 					<td>${ingtask.regDate}</td>
 				</tr>
@@ -58,14 +58,75 @@
 			<c:forEach items="${finishtasks}" var="finishtask">
 				<tr>
 					<td>${finishtask.id}</td>
-					<td>${finishtask.title}</td>
+					<td><a href="detail?taskId=${finishtask.id}">${finishtask.title}</a></td>
 					<td>${finishtask.writerId}</td>
 					<td>${finishtask.regDate}</td>
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="2">페이징</td>
-				<td colspan="2">검색기능</td>
+				<td colspan="2">
+					<c:set var="startPage" value="${param.page-4 > 0 ? param.page-4 : 1}"/>
+					<c:set var="finishPage" value="${param.page+4 <= finishTotalPage ? param.page+4 : finishTotalPage}"/>
+					<c:set var="urlsetting" value="/mpaUsr/task/taskmain?taskPartId=${param.taskPartId}&searchType=${searchType}&search=${search}&page=" />
+					<span>
+						<a href="${urlsetting}1">◀◀</a>
+					</span>
+					<span>
+						<a href="${urlsetting}${param.page-9<1?1:param.page-9}">◀</a>
+					</span>
+					<c:forEach var="i" begin="${startPage}" end="${finishPage}">
+						<c:choose>
+							<c:when test="${i eq param.page}">
+								<span class="text-red-500">
+									<a href="${urlsetting}${i}">${i}  </a>
+								</span>
+							</c:when>
+							<c:otherwise>
+								<span>
+									<a href="${urlsetting}${i}">${i}  </a>
+								</span>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<span>
+						<a href="${urlsetting}${param.page+9>finishTotalPage?finishTotalPage:param.page+9}">▶</a>
+					</span>
+					<span>
+						<a href="${urlsetting}${finishTotalPage}">▶▶</a>
+					</span>
+				</td>
+				<td colspan="2">
+					<form action="taskmain">
+						<input type="hidden" name="taskPartId" value="${param.taskPartId}">
+						<select name="searchType" class="search-option">
+							<c:choose>
+								<c:when test="${searchType=='TB'}">
+									<option selected="selected" value="TB">제목+내용</option>
+									<option value="Ti">제목</option>
+									<option value="Bo">내용</option>
+								</c:when>
+								<c:when test="${searchType=='Ti'}">
+									<option value="TB">제목+내용</option>
+									<option selected="selected" value="Ti">제목</option>
+									<option value="Bo">내용</option>
+								</c:when>
+								<c:when test="${searchType=='Bo'}">
+									<option value="TB">제목+내용</option>
+									<option value="Ti">제목</option>
+									<option selected="selected" value="Bo">내용</option>
+								</c:when>
+								<c:otherwise>
+									<option value="TB">제목+내용</option>
+									<option value="Ti">제목</option>
+									<option value="Bo">내용</option>
+								</c:otherwise>
+							</c:choose>
+						
+						</select>
+						<input class="search-box" type="text" name="search" placeholder="검색어 입력" value="${param.search}">
+						<button class="search-button" type="submit">검색</button>
+					</form>
+				</td>
 			</tr>
 		</table>
 	</div>

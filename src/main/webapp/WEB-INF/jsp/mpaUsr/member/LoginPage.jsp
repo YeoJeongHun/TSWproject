@@ -5,7 +5,8 @@
 
 <body width="100%" height="100%">
     <form action="doLogin" method="post" class="loginForm">
-      <h2>Login test=${param.afterLoginUrl}</h2>
+      <input type="hidden" name="redirectAfterLogin" value="${redirectAfterLogin}">
+      <h2>Login test=${afterLoginUrl}aaaa${redirectAfterLogin}</h2>
       <div class="idForm">
         <input type="text" class="id" placeholder="ID" name="loginId">
       </div>

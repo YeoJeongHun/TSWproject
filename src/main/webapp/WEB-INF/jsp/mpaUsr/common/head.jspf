@@ -125,18 +125,20 @@ td {
 						</a></li>
 						<c:choose>
 							<c:when test="${empty loginedMember}">
-							<li><a href="/mpaUsr/member/LoginPage" class="h-full flex items-center px-5">
-										<span> <i class="fas fa-sign-out-alt"></i>
-									</span> <span class="hidden md:block">&nbsp;SIGN IN</span>
-								</a>
-									<div></div></li>							
+								<li>
+									<a href="/mpaUsr/member/LoginPage${afterLoginUrl}" class="h-full flex items-center px-5">
+										<span> <i class="fas fa-sign-out-alt"></i></span>
+										<span class="hidden md:block">&nbsp;SIGN IN</span>
+									</a>
+								</li>							
 							</c:when>
 							<c:otherwise>
-								<li><a href="/mpaUsr/member/doLogout" class="h-full flex items-center px-5">
-										<span> <i class="fas fa-sign-out-alt"></i>
-									</span> <span class="hidden md:block">&nbsp;SIGN OUT</span>
-								</a>
-									<div></div></li>
+								<li>
+									<a href="/mpaUsr/member/doLogout" class="h-full flex items-center px-5">
+										<span> <i class="fas fa-sign-out-alt"></i></span>
+										<span class="hidden md:block">&nbsp;SIGN OUT</span>
+									</a>
+								</li>
 							</c:otherwise>
 						</c:choose>
 					</ul>
